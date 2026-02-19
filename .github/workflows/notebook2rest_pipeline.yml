@@ -12,11 +12,13 @@ on:
     paths:
       - '**/*.ipynb'
       - '**/*.naavrewf'
+      - "n2res/**"
   pull_request:
     branches: [ "main" ]
     paths:
       - '**/*.ipynb'
       - '**/*.naavrewf'
+      - "n2res/**"
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
