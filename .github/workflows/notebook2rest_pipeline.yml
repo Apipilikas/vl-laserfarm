@@ -21,6 +21,28 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
+
+  # NOTE: THIS JOB IS A SAMPLE OF HOW WE CAN DO IT LATER
+  notebook2rest-setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout notebook repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Clone notebook2rest tool
+        run: |
+          git clone https://github.com/Apipilikas/notebook2rest
+          cd notebook2rest
+          pip install -e .
+
+      #TODO: steps here to use the 
+
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
