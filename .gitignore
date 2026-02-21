@@ -3,3 +3,6 @@
 .idea/
 *.LAZ
 *.gpkg
+
+/env
+app/__pycache__/

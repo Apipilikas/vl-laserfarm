@@ -1,0 +1,4 @@
+fastapi[standard]
+uvicorn
+
+#Note: this file is only for local development purposes; it should be removed later
