@@ -28,6 +28,9 @@ jobs:
   notebook2rest-setup:
     runs-on: ubuntu-latest
 
+    env:
+      AWS_REGION: eu-north-1
+
     steps:
       - name: Checkout notebook repository
         uses: actions/checkout@v4
@@ -52,6 +55,26 @@ jobs:
 
       #TODO: step here to build the result of notebook2rest as a docker image
       #TODO: step here to push the docker image to Amazon ECR
+
+      # ENABLE BUT WITH THE RIGHT 'role-to-assume':
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v4
+      #   with:
+      #     role-to-assume: arn:aws:iam::123456789012:role/my-github-actions-role
+      #     aws-region: ${{ env.AWS_REGION }}
+
+      # - name: Login to Amazon ECR
+      #   id: login-ecr
+      #   uses: aws-actions/amazon-ecr-login@v2
+
+      # - name: Build, tag, and push docker image to Amazon ECR
+      #   env:
+      #     REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+      #     REPOSITORY: notebook2rest/api
+      #     IMAGE_TAG: ${{ github.sha }}
+      #   run: |
+      #     docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+      #     docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
   redeploy_kubernetes:
     runs-on: ubuntu-latest
