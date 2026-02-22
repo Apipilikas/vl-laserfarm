@@ -44,7 +44,8 @@ jobs:
         run: |
           git clone https://github.com/Apipilikas/notebook2rest.git
           cd notebook2rest
-          pip install -e .
+          pip install -r requirements.txt
+        # pip install -e .
           
       #TODO: steps here to use the notebook2rest on the notebooks
       #TODO: Steps here to create & use automated tests on the generated API
