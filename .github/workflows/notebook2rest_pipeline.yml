@@ -42,10 +42,11 @@ jobs:
 
       - name: Clone notebook2rest tool
         run: |
-          git clone https://github.com/Apipilikas/notebook2rest
+          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Apipilikas/notebook2rest.git
           cd notebook2rest
           pip install -e .
-
+        #git clone https://github.com/Apipilikas/notebook2rest
+        
       #TODO: steps here to use the notebook2rest on the notebooks
       #TODO: Steps here to create & use automated tests on the generated API
 
